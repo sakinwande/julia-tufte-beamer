@@ -1,0 +1,57 @@
+\begin{frame}[fragile]{Introduction}
+Neural networks have found recent success as controllers for dynamical systems
+
+\centering
+\begin{figure}
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, height=0.4\textheight]{slides/OvertPoly/figs/droneRacing.png}
+        \caption{Drone Racing \footnotemark[1]}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, height=0.4\textheight]{slides/OvertPoly/figs/waymo.png}
+        \caption{Autonomous Driving \footnotemark[2]}
+    \end{subfigure}
+    \footnotetext[1]{Credit: \footcite{kaufmann2023champion}}
+    \footnotetext[2]{Credit: \footcite{ettinger2021large}}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{Neural Feedback Systems}
+    The resulting systems are what we call \emph{Neural Feedback Systems} (NFS)
+    \begin{figure}
+        \begin{center}
+            \begin{tikzpicture}
+                % Nodes
+                \node (plant) [draw, rectangle, minimum width=1.5cm, minimum height=1cm, label=above:{Plant}] {$f(x)$};
+                \node (controller) [draw, below=1.5cm of plant, rectangle, minimum width=1.5cm, minimum height=1cm, label=below:{Controller}] {$\pi(y)$};
+                \node (input) [draw, left= 2cm of plant, circle]{$+$};
+                \node (noise) [above=0.5cm of input]{$\epsilon$};
+                \node (observer) [draw, below right=0.25cm and 1.5cm of plant, rectangle, minimum width=1.5cm, minimum height=1cm, label=right:{Sensor}] {$o(x)$};
+
+                % Edges
+                \draw[->] (noise) -- (input);
+                \draw[->] (controller) -| (input);
+                \draw[->] (input) -- (plant);
+                \draw[->] (plant) -| (observer);
+                \draw[->] (observer) |- (controller) node[midway, right]{$y$};
+            \end{tikzpicture}
+        \end{center}
+    \end{figure}
+
+    Assume: $x \in \mathbb{R}^n, f(x) = [f_1(x), \ldots, f_n(x)]$, each $f_i: \mathbb{R}^n \to \mathbb{R}$, $\epsilon \in E$, $\pi$ is a neural network with ReLU activations
+\end{frame}
+
+\begin{frame}[fragile]{Neural Feedback Systems}
+    More formally
+\end{frame}
+
+
+
+
+
+
+
+
+

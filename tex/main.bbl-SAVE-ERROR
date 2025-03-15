@@ -1,0 +1,174 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{ettinger2021large}{inproceedings}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{un=0,uniquepart=base,hash=fb49a26b4e90cfcad2b8f4f5d780fce3}{%
+           family={Ettinger},
+           familyi={E\bibinitperiod},
+           given={Scott},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1d82595653b02fb1808eb7de1fa7f197}{%
+           family={Cheng},
+           familyi={C\bibinitperiod},
+           given={Shuyang},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=02029075832b008f276249c84be0a0e2}{%
+           family={Caine},
+           familyi={C\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=098fc2437254275ce09502ec6d6cf78e}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Chenxi},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0db445256963546f26ac7dc0d929265b}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Hang},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5f8c37a5615b1369ce1b454378512381}{%
+           family={Pradhan},
+           familyi={P\bibinitperiod},
+           given={Sabeek},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6f13b725702f32dd462873a3f48be196}{%
+           family={Chai},
+           familyi={C\bibinitperiod},
+           given={Yuning},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=db5be1d6108f801b14038253d457c929}{%
+           family={Sapp},
+           familyi={S\bibinitperiod},
+           given={Ben},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b2724d6a5941431eaac5fc5257fb5ffb}{%
+           family={Qi},
+           familyi={Q\bibinitperiod},
+           given={Charles\bibnamedelima R},
+           giveni={C\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1d9ad9402232f1c53f0efd7b0d800b2e}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Yin},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{239a3efeb6ef0c098bb3faaa7214ab99}
+      \strng{fullhash}{4ca0386410b5753770e81811e69e7b29}
+      \strng{fullhashraw}{4ca0386410b5753770e81811e69e7b29}
+      \strng{bibnamehash}{239a3efeb6ef0c098bb3faaa7214ab99}
+      \strng{authorbibnamehash}{239a3efeb6ef0c098bb3faaa7214ab99}
+      \strng{authornamehash}{239a3efeb6ef0c098bb3faaa7214ab99}
+      \strng{authorfullhash}{4ca0386410b5753770e81811e69e7b29}
+      \strng{authorfullhashraw}{4ca0386410b5753770e81811e69e7b29}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the IEEE/CVF International Conference on Computer Vision}
+      \field{title}{Large scale interactive motion forecasting for autonomous driving: The waymo open motion dataset}
+      \field{year}{2021}
+      \field{pages}{9710\bibrangedash 9719}
+      \range{pages}{10}
+    \endentry
+    \entry{kaufmann2023champion}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=67c97d80868fd6b133dedb6e929aac2d}{%
+           family={Kaufmann},
+           familyi={K\bibinitperiod},
+           given={Elia},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=59afafcd8a1882db2ba4f6af81e0f01a}{%
+           family={Bauersfeld},
+           familyi={B\bibinitperiod},
+           given={Leonard},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ac29e4e32ee2a5bcaa325934a585b06f}{%
+           family={Loquercio},
+           familyi={L\bibinitperiod},
+           given={Antonio},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=81a3feeb579a36f8ed14c22d7264cf2c}{%
+           family={Müller},
+           familyi={M\bibinitperiod},
+           given={Matthias},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9025300f43a193cfed8e10e924f2a117}{%
+           family={Koltun},
+           familyi={K\bibinitperiod},
+           given={Vladlen},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dac21ab4ede215439fcc6b051be53a11}{%
+           family={Scaramuzza},
+           familyi={S\bibinitperiod},
+           given={Davide},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group UK London}%
+      }
+      \strng{namehash}{92409b57e303bc9e6aa9740c5b8df0de}
+      \strng{fullhash}{eb00725943e3ee22432047acb9e69901}
+      \strng{fullhashraw}{eb00725943e3ee22432047acb9e69901}
+      \strng{bibnamehash}{92409b57e303bc9e6aa9740c5b8df0de}
+      \strng{authorbibnamehash}{92409b57e303bc9e6aa9740c5b8df0de}
+      \strng{authornamehash}{92409b57e303bc9e6aa9740c5b8df0de}
+      \strng{authorfullhash}{eb00725943e3ee22432047acb9e69901}
+      \strng{authorfullhashraw}{eb00725943e3ee22432047acb9e69901}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature}
+      \field{number}{7976}
+      \field{title}{Champion-level drone racing using deep reinforcement learning}
+      \field{volume}{620}
+      \field{year}{2023}
+      \field{pages}{982\bibrangedash 987}
+      \range{pages}{6}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

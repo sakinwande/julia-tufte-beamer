@@ -25,12 +25,13 @@
 \usepackage[flushleft]{threeparttable}
 \usepackage{vector} % local
 \usepackage{varwidth}
+\usepackage{subcaption}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Unicode settings
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+% \setmonofont{DejaVu with Mono}[Scale=MatchLowercase]
 \usepackage{newunicodechar}
 \newfontface{\calligraphic}{Latin Modern Math}[Scale=0.85]
 \newunicodechar{𝒪}{{\normalfont\calligraphic 𝒪}}
@@ -56,7 +57,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Reference (biber) settings
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[style=verbose,backend=biber]{biblatex}
+\usepackage[style=authoryear,backend=biber]{biblatex}
 \addbibresource{\jobname.bib}
 \setbeamerfont{footnote}{size=\tiny}
 \setbeamertemplate{bibliography item}{}% Remove reference icon.
