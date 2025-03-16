@@ -1,0 +1,67 @@
+\begin{frame}[fragile]{OvertPoly}
+    OvertPoly is a \textbf{combinatorial algorithm} for forward reachability analysis of Neural Feedback Systemswith \textbf{computational efficiency} comparable to abstraction propagation methods.
+\end{frame}
+
+\begin{frame}[fragile]{OvertPoly}
+    Our contributions are:
+    \begin{itemize}
+        \uncover<1->{\item We introduce a \textbf{novel combinatorial abstraction} for nonlinear dynamical systems}
+        \uncover<2->{\item Using our abstraction, we define an \textbf{efficient representation} of nonlinear neural feedback systems}
+        \uncover<3->{\item We use this representation to define novel algorithms for forward reachability analysis}
+        \uncover<4->{\item We demonstrate an \textbf{order of magnitude improvement} in performance compared to the current state-of-the-art}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Polyhedra}
+    \begin{definition}[$ k $-Simplex]
+        A polyhedron $\mathcal{S}$ is a $k$-simplex if it is the textbf{conv}ex hull of $k+1$ affinely independent points in $\mathbb{R}^k$.  A polyhedron is a simplex if it is a $k$-simplex for some $k$, and $k$ is called its \emph{dimension}.
+    \end{definition}
+\end{frame}
+
+\begin{frame}[fragile]{Polyhedra}
+    \begin{definition}[Simplicial $k$-Complex]
+        A \emph{simplicial complex} $\mathcal{C}$ is a set of simplices such that:
+        \begin{itemize}
+        \item Every face of a simplex in $\mathcal{C}$ is also in $\mathcal{C}$
+        \item Every non-empty intersection of two simplices $\mathcal{S}_1,\mathcal{S}_2\in\mathcal{C}$ is a face of both $\mathcal{S}_1$ and $\mathcal{S}_2$
+        \end{itemize}
+        \end{definition}
+\end{frame}
+
+\begin{frame}[fragile]{Polyhedra}
+    \begin{definition}[Point Set Triangulation]
+        \uncover<1->{
+        If $P$ is a finite set of points in $\mathbb{R}^n$, then a pure simplicial $n$-complex $\mathcal{C}$ is a \emph{point set triangulation of $P$} if $P = \bigcup_{\mathcal{S}\in\mathcal{C}} \mathbf{vert}(\mathcal{S})$ and $\mathbf{conv}(P) = \bigcup_{\mathcal{S}\in\mathcal{S}} \mathcal{S}$.
+        \end{definition}}
+
+        \uncover<2->{
+        Let $C$ be a closed $n$-ball. We call $C^O$ its open $n$-ball, and $C^S$ the hypersphere forming its surface. We call $V_P(C) = C \cap P$ the vertices of $C$.}
+
+        \uncover<3->{
+        If $\mathcal{C}$ is a point set triangulation of $P$, and $\mathcal{S}$ is a $n$-simplex in $\mathcal{C}$, then $C(\mathcal{S})$ is the smallest closed $n$-ball $C$ such that $\mathcal{S} \subseteq C$ and $C^O \cap \mathbf{vert}(\mathcal{S}) = \emptyset$.}
+
+        \uncover<4->{
+        $\mathcal{S}$ satisfies the \emph{Delaunay condition} and is called a \emph{Delaunay simplex of $P$} if $V_P(C(\mathcal{S})^O) = \emptyset$.}
+        
+        \uncover<5->{
+        $\mathcal{C}$ is a \emph{Delaunay triangulation} if every $n$-simplex in $\mathcal{C}$ satisfies the Delaunay condition. }
+\end{frame}
+
+\begin{frame}[fragile]{Polyhedra}
+    \begin{definition}[Bounding Set] A \emph{bounding set} is a tuple $\mathcal{B} = \langle n,P, L, U \rangle$, where $n \in \mathbb{N}$, $P$ is finite a set of points in $\mathbb{R}^n$, and $L$ and $U$ are functions from P to $\mathbb{R}$, such that $ L(p) \leq U(p) $ for all $ p \in P. $ The \emph{domain} of $\mathcal{B}$ is defined as $\mathbf{dom}(\mathcal{B})=\mathbf{conv}(P)$.
+    \end{definition}
+\end{frame}
+
+\begin{frame}[fragile]{Polyhedra}
+    \begin{definition}[Polyhedron formed by Bounding Set]
+        Let $ \mathcal{B} = \langle n,P,L,U \rangle $ be a bounding set. We define the \emph{vertices} of the bounding set as:
+        \[
+        V(\mathcal{B}) := \{(p,L(p)) : p \in P\} \cup \{(p,U(p)) : p \in P\}.
+        \]
+        We define the ($n+1$-dimensional) \emph{polyhedron formed by $ \mathcal{B} $ } as
+        \[
+        \mathcal{P}(\mathcal{B}) := \mathbf{conv}(V(\mathcal{B})).
+        \]
+        \end{definition}
+\end{frame}
+

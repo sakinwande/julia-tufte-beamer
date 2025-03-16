@@ -1,7 +1,23 @@
-\frametitle{Polyhedral Enclosures}
-\begin{definition}[Bounding Set Composition]
+\begin{frame}[fragile]{Polyhedral Enclosures}
+    \begin{definition}[Polyhedral Enclosure]
+        Let $ \mathcal{B} = \langle n,P, L, U \rangle $ be a bounding set, let $\Delta$ be a Delaunay triangulation of $P$, and let $\Delta_n$ be the set of all $n$-simplices in $\Delta$. We then define the bounding set associated with a simplex $\mathcal{S} \in \Delta_n$ as:
+        \[
+        \mathcal{B}_{\mathcal{S}} := \langle n,\mathbf{vert}(\mathcal{S}), L^{\mathbf{vert}(\mathcal{S})}, U^{\mathbf{vert}(\mathcal{S})} \rangle,
+        \]
+        \vspace{0.5em} 
+        \noindent
+        We define the \emph{polyhedral enclosure} formed by $\mathcal{B}$ and $\Delta$ as:
+        \[
+        \mathcal{E}(\mathcal{B},\Delta) := \bigcup_{S\in\Delta_n} \mathcal{P}(\mathcal{B}_S).
+        \]
+        \end{definition}
+        
+\end{frame}
+
+\begin{frame}[fragile]{Polyhedral Enclosures}
+    \begin{definition}[Bounding Set Composition]
         Let $\mathcal{B}^f = \langle n, P, L^f, U^f \rangle$ and $\mathcal{B}^g = \langle n, P, L^g, U^g \rangle$ be bounding sets with the same dimension and over the same set of points $P$.  For $\bowtie\ \in\{+,-,\times,/\}$, we define $\mathcal{B}^f \bowtie \mathcal{B}^g := \langle n, P, L, U \rangle$, where, for all $\vec{x} \in P$,
-            \begin{align*}
+            \begin{align*} 
             &L(\vec{x}), U(\vec{x}) = \\
             &\begin{cases}
                 L^f(\vec{x}) + L^g(\vec{x}), U^f(\vec{x}) + U^g(\vec{x}) & \text{if } \bowtie \, = \,+, \\[0.1ex]
@@ -11,4 +27,5 @@
             \end{align*}
             where $\mathit{Bounds} = \{h_1(x) \bowtie h_2(x) \,|\, h_1 \in \{L^f, U^f\}, h_2 \in \{L^g, U^g\} \}$ is the set of potential bounds when using multiplication or division.
         \end{definition}
-
+        
+\end{frame}
