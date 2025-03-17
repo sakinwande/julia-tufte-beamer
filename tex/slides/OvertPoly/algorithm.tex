@@ -1,0 +1,316 @@
+\begin{frame}[fragile]{Convex Combination Encoding}
+    The \textbf{structure} of polyhedral enclosures permits the use of efficient encodings to represent dynamical systems as mixed integer linear programs (MILPs).
+
+    \vspace{0.5cm}
+
+    We adapt the convex combination encoding\footcite{geissler2011using} to represent each nonlinear transition function as an MILP.
+\end{frame}
+
+\begin{frame}[fragile]{Convex Combination Encoding}
+    Each transition function is represented as an MILP of the form
+    \begin{subequations}
+    \begin{gather}
+        \sum_{j = 1}^{d} \lambda_j = 1, \;\; \lambda \succcurlyeq 0, \;\;\; \sum_{i = 1}^m b_i \leq 1,  \;\;\; b \in \{0,1\}^m \label{eq:cc1}\\
+        \lambda_j \leq \sum_{\{i|\mathbf{p}_j \in \mathbf{vert}(S_i)\}} b_i \;\;\; \text{for} \;\; j = 1,\dots,d \label{eq:cc2} \\
+        \mathbf{x} = \sum_{j = 1}^{d} \lambda_j \cdot\mathbf{p}_j \label{eq:cc3} \\
+        \overline{y} = \sum_{j = 1}^{d} \lambda_j \cdot \overline{f}(\mathbf{p}_j), \;\;\;
+        \underline{y} = \sum_{j = 1}^{d} \lambda_j \cdot \underline{f}(\mathbf{p}_j) \label{eq:cc4}\\ 
+        \underline{y} \leq y \leq \overline{y} \label{eq:cc5}
+    \end{gather}
+\end{subequations}
+\end{frame}
+
+\begin{frame}[fragile]{Convex Combination Encoding}
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            \begin{subequations}
+                \begin{gather}
+                    \sum_{j = 1}^{d} \lambda_j = 1, \;\; \lambda \succcurlyeq 0, \;\;\; \sum_{i = 1}^m b_i \leq 1,  \;\;\; b \in \{0,1\}^m \label{eq:cc1}\\
+                    \lambda_j \leq \sum_{\{i|\mathbf{p}_j \in \mathbf{vert}(S_i)\}} b_i \;\;\; \text{for} \;\; j = 1,\dots,d \label{eq:cc2} \\
+                    \mathbf{x} = \sum_{j = 1}^{d} \lambda_j \cdot\mathbf{p}_j \label{eq:cc3} \\
+                    \overline{y} = \sum_{j = 1}^{d} \lambda_j \cdot \overline{f}(\mathbf{p}_j), \;\;\;
+                    \underline{y} = \sum_{j = 1}^{d} \lambda_j \cdot \underline{f}(\mathbf{p}_j) \label{eq:cc4}\\ 
+                    \underline{y} \leq y \leq \overline{y} \label{eq:cc5}
+                \end{gather}
+            \end{subequations}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \begin{figure}
+                \resizebox{\columnwidth}{!}{
+                \begin{tikzpicture}[scale=8]
+
+
+                \coordinate (A) at (-1.0, -1.0);
+                \coordinate (B) at (-0.716, -1.0);
+                \coordinate (C) at (-0.576, -1.0);
+                \coordinate (D) at (-0.233, -1.0);
+                \coordinate (E) at (-0.189, -1.0);
+                \coordinate (F) at (0.189, -1.0);
+                \coordinate (G) at (0.233, -1.0);
+                \coordinate (H) at (0.576, -1.0);
+                \coordinate (I) at (0.716, -1.0);
+                \coordinate (J) at (1.0, -1.0);
+                \coordinate (K) at (-1.0, 1.0);
+                \coordinate (L) at (-0.716, 1.0);
+                \coordinate (M) at (-0.576, 1.0);
+                \coordinate (N) at (-0.233, 1.0);
+                \coordinate (O) at (-0.189, 1.0);
+                \coordinate (P) at (0.189, 1.0);
+                \coordinate (Q) at (0.233, 1.0);
+                \coordinate (R) at (0.576, 1.0);
+                \coordinate (S) at (0.716, 1.0);
+                \coordinate (T) at (1.0, 1.0);
+
+                % % Draw the grid points as filled circles
+                \node[draw, circle, fill=black] at (A) {};
+                \node[draw, circle, fill=black] at (B) {};
+                \node[draw, circle, fill=black] at (C) {};
+                \node[draw, circle, fill=black] at (D) {};
+                \node[draw, circle, fill=black] at (E) {};
+                \node[draw, circle, fill=black] at (F) {};
+                \node[draw, circle, fill=black] at (G) {};
+                \node[draw, circle, fill=black] at (H) {};
+                \node[draw, circle, fill=black] at (I) {};
+                \node[draw, circle, fill=black] at (J) {};
+                \node[draw, circle, fill=black] at (K) {};
+                \node[draw, circle, fill=black] at (L) {};
+                \node[draw, circle, fill=black] at (M) {};
+                \node[draw, circle, fill=black] at (N) {};
+                \node[draw, circle, fill=black] at (O) {};
+                \node[draw, circle, fill=black] at (P) {};
+                \node[draw, circle, fill=black] at (Q) {};
+                \node[draw, circle, fill=black] at (R) {};
+                \node[draw, circle, fill=black] at (S) {};
+                \node[draw, circle, fill=black] at (T) {};
+                % % Draw the triangulation
+                % % Triangles between neighboring grid points
+                \draw (L) -- (B) -- (A) -- (L);
+                \draw (L) -- (B) -- (C) -- (L);
+                \draw (L) -- (K) -- (A) -- (L);
+                \draw (L) -- (M) -- (C) -- (L);
+                \draw (N) -- (D) -- (C) -- (N);
+                \draw (N) -- (D) -- (E) -- (N);
+                \fill[green, opacity=0.3] (P) -- (F) -- (E) -- (P);
+                \draw (N) -- (M) -- (C) -- (N);
+                \draw (N) -- (O) -- (E) -- (N);
+                \draw (P) -- (F) -- (E) -- (P);
+                \draw (P) -- (O) -- (E) -- (P);
+                \draw (Q) -- (G) -- (F) -- (Q);
+                \draw (Q) -- (G) -- (H) -- (Q);
+                \draw (Q) -- (H) -- (R) -- (Q);
+                \draw (Q) -- (P) -- (F) -- (Q);
+                \draw (S) -- (H) -- (R) -- (S);
+                \draw (S) -- (I) -- (H) -- (S);
+                \draw (S) -- (I) -- (J) -- (S);
+                \draw (S) -- (T) -- (J) -- (S);
+
+                % % %Add labels for simplices
+                % Add labels for simplices using their centroids
+                \node[font=\Huge] at ($(A) !0.66!(B) + (0,0.5)$) {$\lambda_1$}; % lambda LBA
+                %\node[font=\Huge] at ($(C) !0.66!(B) + (0,0.2)$) {$\lambda_2$}; % lambda LBC
+                \node[font=\Huge] at ($(C) !0.66!(D) + (0,0.5)$) {$\lambda_3$}; % lambda NDC
+                %\node[font=\Huge] at ($(E) !0.66!(D) + (0,0.2)$) {$\lambda_4$}; % lambda NDE
+                \node[font=\Huge] at ($(E) !0.66!(F) + (0,0.5)$) {$\lambda_5$}; % lambda PFE
+                %\node[font=\Huge] at ($(G) !0.66!(F) + (0,0.2)$) {$\lambda_6$}; % lambda QGF
+                \node[font=\Huge] at ($(G) !0.33!(H) + (0,0.5)$) {$\lambda_7$}; %lambda QGH
+                %\node[font=\Huge] at ($(I) !0.66!(H) + (0,0.2)$) {$\lambda_8$}; % lambda SIH
+                \node[font=\Huge] at ($(I) !0.33!(J) + (0,0.5)$) {$\lambda_9$}; % lambda SIJ
+
+                \node[font=\Huge] at ($(K) !0.33!(L)-(0,0.4)$) {$\lambda_{10}$}; % lambda LKA
+                %\node[font=\Huge] at ($(M) !0.33!(L)-(0,0.2)$) {$\lambda_{11}$}; % lambda LMC
+                \node[font=\Huge] at ($(M) !0.33!(N)-(0,0.4)$) {$\lambda_{12}$}; % lambda NMC
+                %\node[font=\Huge] at ($(O) !0.33!(N)-(0,0.2)$) {$\lambda_{13}$}; % lambda NOE
+                \node[font=\Huge] at ($(O) !0.33!(P)-(0,0.4)$) {$\lambda_{14}$}; % lambda POE
+                %\node[font=\Huge] at ($(Q) !0.33!(P)-(0,0.2)$) {$\lambda_{15}$}; % lambda QPF
+                \node[font=\Huge] at ($(Q) !0.66!(R)-(0,0.4)$) {$\lambda_{16}$}; % lambda QHR
+                %\node[font=\Huge] at ($(S) !0.33!(R)-(0,0.2)$) {$\lambda_{17}$}; % lambda SHR
+                \node[font=\Huge] at ($(S) !0.66!(T)-(0,0.4)$) {$\lambda_{18}$}; % lambda STJ
+                \end{tikzpicture}
+            }
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{OvertPoly}
+    \begin{center}
+        \begin{tikzpicture}
+            % Nodes
+            \node (plant) [draw, rectangle, minimum width=1.5cm, minimum height=1cm, label=above:{Plant}] {$f(x)$};
+            \node (controller) [draw, below=1.5cm of plant, rectangle, minimum width=1.5cm, minimum height=1cm, label=below:{Controller}, fill=green!20] {$\pi(y)$};
+            \node (input) [draw, left= 2cm of plant, circle]{$+$};
+            \node (noise) [above=0.5cm of input]{$\epsilon$};
+            \node (observer) [draw, below right=0.25cm and 1.5cm of plant, rectangle, minimum width=1.5cm, minimum height=1cm, label=right:{Sensor}] {$o(x)$};
+    
+            % Edges
+            \draw[->] (noise) -- (input);
+            \draw[->] (controller) -| (input)node[pos=0.3, yshift=7pt]{$u$};
+            \draw[->] (input) -- (plant);
+            \draw[->] (plant) -| (observer)node[pos=0.3, yshift=7pt]{$x$};; 
+            \draw[->] (observer) |- (controller) node[midway, xshift=7pt, yshift=7pt]{$y$};
+        \end{tikzpicture}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{ReLU Networks as MILPs}
+    \uncover<1->{
+    A neural network is a composition of affine transformations and nonlinear activation functions.}
+
+    \uncover<2->{
+    When the activation function is the rectified linear unit (ReLU), it results in a piecewise linear function.}
+
+    \uncover<3->{
+    We adapt the MIPVerify\footcite{tjeng2017evaluating} encoding to represent ReLU networks as MILPs. A single ReLU yields }
+
+    \uncover<4->{
+    \begin{align*}
+        l,u \in \mathbb{R}, \quad l \leq x \leq u, \quad l \leq 0 \leq u, \quad \mathbbm{1}_{x \geq 0} \\
+        y \le x - l(1 - \mathbbm{1}_{x \ge 0}), \quad y \ge x, \quad y \le u \cdot \in {x \ge 0}, \quad y \ge 0.
+    \end{align*}}
+\end{frame}
+
+\begin{frame}[fragile]{OvertPoly}
+    \begin{center}
+        \begin{tikzpicture}
+            % Nodes
+            \node (plant) [draw, rectangle, minimum width=1.5cm, minimum height=1cm, label=above:{Plant}, fill=green!20] {$f(x)$};
+            \node (controller) [draw, below=1.5cm of plant, rectangle, minimum width=1.5cm, minimum height=1cm, label=below:{Controller}, fill=green!20] {$\pi(y)$};
+            \node (input) [draw, left= 2cm of plant, circle]{$+$};
+            \node (noise) [above=0.5cm of input]{$\epsilon$};
+            \node (observer) [draw, below right=0.25cm and 1.5cm of plant, rectangle, minimum width=1.5cm, minimum height=1cm, label=right:{Sensor}] {$o(x)$};
+    
+            % Edges
+            \draw[->] (noise) -- (input);
+            \draw[->] (controller) -| (input)node[pos=0.3, yshift=7pt]{$u$};
+            \draw[->] (input) -- (plant);
+            \draw[->] (plant) -| (observer)node[pos=0.3, yshift=7pt]{$x$};; 
+            \draw[->] (observer) |- (controller) node[midway, xshift=7pt, yshift=7pt]{$y$};
+        \end{tikzpicture}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Forward Reachability Analysis}
+    Since both the plant and controller are represented as MILPs, we can compute tight bounds on the forward reachable set of the system by solving a series of MILPs.
+\end{frame}
+
+\begin{frame}[fragile]{Forward Reachability Analysis}
+    \begin{columns}
+        \begin{column}{0.35\textwidth}
+            \begin{center}
+                \resizebox{\columnwidth}{!}{
+                \begin{tikzpicture}
+                    % Nodes
+                    \node (plant) [draw, rectangle, minimum width=1.5cm, minimum height=1cm, label=above:{Plant}, fill=green!20] {$f(x)$};
+                    \node (controller) [draw, below=1.5cm of plant, rectangle, minimum width=1.5cm, minimum height=1cm, label=below:{Controller}, fill=green!20] {$\pi(y)$};
+                    \node (input) [draw, left= 2cm of plant, circle]{$+$};
+                    \node (noise) [above=0.5cm of input]{$\epsilon$};
+                    \node (observer) [draw, below right=0.25cm and 1.5cm of plant, rectangle, minimum width=1.5cm, minimum height=1cm, label=left:{Sensor}] {$o(x)$};
+            
+                    % Edges
+                    \draw[->] (noise) -- (input);
+                    \draw[->] (controller) -| (input)node[pos=0.3, yshift=7pt]{$u$};
+                    \draw[->] (input) -- (plant);
+                    \draw[->] (plant) -| (observer)node[pos=0.3, yshift=7pt]{$x$};; 
+                    \draw[->] (observer) |- (controller) node[midway, xshift=7pt, yshift=7pt]{$y$};
+                \end{tikzpicture}}
+            \end{center}
+        \end{column}
+        \begin{column}{0.65\textwidth}
+            Recall that the system evolves such that for each $i \in [1..n]$
+            \begin{align*}
+                \mathit{next}^{\mathcal{D}}(x)_i = \Big\{x_i + \big(f_i(x) + \pi(o(x))_i + \epsilon\big) \cdot \delta | \epsilon \in E\Big\}
+            \end{align*}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Forward Reachability Analysis}
+    \begin{columns}
+        \begin{column}{0.35\textwidth}
+            \begin{center}
+                \resizebox{\columnwidth}{!}{
+                \begin{tikzpicture}
+                    % Nodes
+                    \node (plant) [draw, rectangle, minimum width=1.5cm, minimum height=1cm, label=above:{Plant}, fill=green!20] {$f(x)$};
+                    \node (controller) [draw, below=1.5cm of plant, rectangle, minimum width=1.5cm, minimum height=1cm, label=below:{Controller}, fill=green!20] {$\pi(y)$};
+                    \node (input) [draw, left= 2cm of plant, circle]{$+$};
+                    \node (noise) [above=0.5cm of input]{$\epsilon$};
+                    \node (observer) [draw, below right=0.25cm and 1.5cm of plant, rectangle, minimum width=1.5cm, minimum height=1cm, label=left:{Sensor}] {$o(x)$};
+            
+                    % Edges
+                    \draw[->] (noise) -- (input);
+                    \draw[->] (controller) -| (input)node[pos=0.3, yshift=7pt]{$u$};
+                    \draw[->] (input) -- (plant);
+                    \draw[->] (plant) -| (observer)node[pos=0.3, yshift=7pt]{$x$};; 
+                    \draw[->] (observer) |- (controller) node[midway, xshift=7pt, yshift=7pt]{$y$};
+                \end{tikzpicture}}
+            \end{center}
+        \end{column}
+        \begin{column}{0.65\textwidth}
+            We can compute tight bounds for each $i \in [1..n]$ by solving
+            \begin{subequations}
+                \uncover<1->{
+                \begin{align}
+                    \min_{\vec{x} \in \hat{\mathcal{X}}_t} \vec{x}_i + (\underline{f_i}(\vec{x}) + \pi(o(\vec{x})_i) + \epsilon) \cdot \delta \\
+                    \quad \pi(o(\vec{x})) = \mathcal{M}_0(\vec{x}), \quad \epsilon \in E
+                    \label{eq:LowerBound}
+                \end{align}}
+                \uncover<2->{
+                \begin{align}
+                    \max_{\vec{x} \in \hat{\mathcal{X}}_t} \vec{x}_i + (\overline{f_i}(\vec{x}) + \pi(o(\vec{x}))_i + \epsilon) \cdot \delta \\
+                    \quad \pi(o(\vec{x})) = \mathcal{M}_0(\vec{x}),
+                    \quad \epsilon \in E
+                    \label{eq:UpperBound}
+                \end{align}}
+                \label{eq:Reach}
+                \end{subequations}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Forward Reachability Analysis: Symbolic}
+    \begin{columns}
+        \begin{column}{0.35\textwidth}
+            \begin{center}
+                \resizebox{\columnwidth}{!}{
+                \begin{tikzpicture}
+                    % Nodes
+                    \node (plant) [draw, rectangle, minimum width=1.5cm, minimum height=1cm, label=above:{Plant}, fill=green!20] {$f(x)$};
+                    \node (controller) [draw, below=1.5cm of plant, rectangle, minimum width=1.5cm, minimum height=1cm, label=below:{Controller}, fill=green!20] {$\pi(y)$};
+                    \node (input) [draw, left= 2cm of plant, circle]{$+$};
+                    \node (noise) [above=0.5cm of input]{$\epsilon$};
+                    \node (observer) [draw, below right=0.25cm and 1.5cm of plant, rectangle, minimum width=1.5cm, minimum height=1cm, label=left:{Sensor}] {$o(x)$};
+            
+                    % Edges
+                    \draw[->] (noise) -- (input);
+                    \draw[->] (controller) -| (input)node[pos=0.3, yshift=7pt]{$u$};
+                    \draw[->] (input) -- (plant);
+                    \draw[->] (plant) -| (observer)node[pos=0.3, yshift=7pt]{$x$};; 
+                    \draw[->] (observer) |- (controller) node[midway, xshift=7pt, yshift=7pt]{$y$};
+                \end{tikzpicture}}
+            \end{center}
+        \end{column}
+        \begin{column}{0.65\textwidth}
+            We can compute tight bounds for each $i \in [1..n]$ by solving
+            \abovedisplayskip=0pt
+            \belowdisplayskip=0pt
+            \begin{subequations}
+                \uncover<1->{
+                \begin{align}
+                    \min_{\vec{x} \in \hat{\mathcal{X}}_t} \vec{x}_i + (\underline{f_i}(\vec{x}) + \pi(o(\vec{x})_i) + \epsilon) \cdot \delta \\
+                    \quad \pi(o(\vec{x})) = \mathcal{M}_0(\vec{x}),
+                    \quad \epsilon \in E \\
+                    \hat{\mathcal{X}}_t = \mathit{next}^{\mathcal{D}}(\hat{\mathcal{X}}_{t-1})
+                    \label{eq:LowerBound}
+                \end{align}} \uncover<2->{\begin{align}
+                    \max_{\vec{x} \in \hat{\mathcal{X}}_t} \vec{x}_i + (\overline{f_i}(\vec{x}) + \pi(o(\vec{x}))_i + \epsilon) \cdot \delta \\
+                    \quad \pi(o(\vec{x})) = \mathcal{M}_0(\vec{x}),
+                    \quad \epsilon \in E \\
+                    \hat{\mathcal{X}}_t = \mathit{next}^{\mathcal{D}}(\hat{\mathcal{X}}_{t-1})
+                    \label{eq:UpperBound}
+                \end{align}}
+                \label{eq:Reach}
+                \end{subequations}
+        \end{column}
+    \end{columns}
+\end{frame}

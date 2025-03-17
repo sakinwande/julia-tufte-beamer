@@ -1,14 +1,3 @@
-\frametitle{Polyhedral Enclosures}
-\begin{definition}[Bounding Set Composition]
-        Let $\mathcal{B}^f = \langle n, P, L^f, U^f \rangle$ and $\mathcal{B}^g = \langle n, P, L^g, U^g \rangle$ be bounding sets with the same dimension and over the same set of points $P$.  For $\bowtie\ \in\{+,-,\times,/\}$, we define $\mathcal{B}^f \bowtie \mathcal{B}^g := \langle n, P, L, U \rangle$, where, for all $\vec{x} \in P$,
-            \begin{align*}
-            &L(\vec{x}), U(\vec{x}) = \\
-            &\begin{cases}
-                L^f(\vec{x}) + L^g(\vec{x}), U^f(\vec{x}) + U^g(\vec{x}) & \text{if } \bowtie \, = \,+, \\[0.1ex]
-                L^f(\vec{x}) - L^g(\vec{x}), U^f(\vec{x}) - U^g(\vec{x}) & \text{if } \bowtie \, = \,-, \\[0.1ex]
-                \min(\mathit{Bounds}),\max(\mathit{Bounds})  & \text{if } \bowtie \, \in \{\times, \div\}, \\[0.1ex]
-            \end{cases}
-            \end{align*}
-            where $\mathit{Bounds} = \{h_1(x) \bowtie h_2(x) \,|\, h_1 \in \{L^f, U^f\}, h_2 \in \{L^g, U^g\} \}$ is the set of potential bounds when using multiplication or division.
-        \end{definition}
-
+\begin{center}
+        \Huge Thank you!
+    \end{center}

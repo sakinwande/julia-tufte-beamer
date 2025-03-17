@@ -34,7 +34,7 @@ Neural networks have found recent success as controllers for dynamical systems
                 \draw[->] (noise) -- (input);
                 \draw[->] (controller) -| (input)node[pos=0.3, yshift=7pt]{$u$};
                 \draw[->] (input) -- (plant);
-                \draw[->] (plant) -| (observer);
+                \draw[->] (plant) -| (observer)node[pos=0.3, yshift=7pt]{$x$};; 
                 \draw[->] (observer) |- (controller) node[midway, xshift=7pt, yshift=7pt]{$y$};
             \end{tikzpicture}
         \end{center}
@@ -58,7 +58,7 @@ Neural networks have found recent success as controllers for dynamical systems
                     \draw[->] (noise) -- (input);
                     \draw[->] (controller) -| (input)node[pos=0.3, yshift=7pt]{$u$};
                     \draw[->] (input) -- (plant);
-                    \draw[->] (plant) -| (observer);
+                    \draw[->] (plant) -| (observer)node[pos=0.3, yshift=7pt]{$x$};; 
                     \draw[->] (observer) |- (controller) node[midway, xshift=7pt, yshift=7pt]{$y$};
                 \end{tikzpicture}
             }
@@ -94,7 +94,7 @@ Neural networks have found recent success as controllers for dynamical systems
                     \draw[->] (noise) -- (input);
                     \draw[->] (controller) -| (input)node[pos=0.3, yshift=7pt]{$u$};
                     \draw[->] (input) -- (plant);
-                    \draw[->] (plant) -| (observer);
+                    \draw[->] (plant) -| (observer)node[pos=0.3, yshift=7pt]{$x$};; 
                     \draw[->] (observer) |- (controller) node[midway, xshift=7pt, yshift=7pt]{$y$};
                 \end{tikzpicture}
             }
@@ -135,14 +135,14 @@ Neural networks have found recent success as controllers for dynamical systems
                     \draw[->] (noise) -- (input);
                     \draw[->] (controller) -| (input)node[pos=0.3, yshift=7pt]{$u$};
                     \draw[->] (input) -- (plant);
-                    \draw[->] (plant) -| (observer);
+                    \draw[->] (plant) -| (observer)node[pos=0.3, yshift=7pt]{$x$};; 
                     \draw[->] (observer) |- (controller) node[midway, xshift=7pt, yshift=7pt]{$y$};
                 \end{tikzpicture}
             }
         \end{figure}
 
         \column{0.6\textwidth}
-        A \emph{trajectory} $\tau^{\mathcal{D}}(\mathcal{X}_0)$ is a sequence of states ($\mathcal{X}_0, \mathcal{X}_1, \ldots, \mathcal{X}_T$), where $\mathcal{X}_0 \subseteq I$, and for each $t \in [1..T]$, $\mathcal{X}_{t} = \mathit{next}^{\mathcal{D}}(\mathcal{X}_{t-1})$
+        A \emph{trajectory} $\tau^{\mathcal{D}}(\mathcal{X}_0)$ is a sequence of state sets ($\mathcal{X}_0, \mathcal{X}_1, \ldots, \mathcal{X}_T$), where $\mathcal{X}_0 \subseteq I$, and for each $t \in [1..T]$, $\mathcal{X}_{t} = \mathit{next}^{\mathcal{D}}(\mathcal{X}_{t-1})$
         
         \vspace{0.5cm}
 
