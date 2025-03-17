@@ -3,16 +3,18 @@ Neural networks have found recent success as controllers for dynamical systems
 
 \centering
 \begin{figure}
+    \uncover<1->{
     \begin{subfigure}{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth, height=0.4\textheight]{slides/OvertPoly/figs/droneRacing.png}
         \caption{Drone Racing \footnotemark[1]}
-    \end{subfigure}
+    \end{subfigure}}
+    \uncover<2->{
     \begin{subfigure}{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth, height=0.4\textheight]{slides/OvertPoly/figs/waymo.png}
         \caption{Autonomous Driving \footnotemark[2]}
-    \end{subfigure}
+    \end{subfigure}}
     \footnotetext[1]{Credit: \footcite{kaufmann2023champion}}
     \footnotetext[2]{Credit: \footcite{ettinger2021large}}
 \end{figure}
@@ -65,15 +67,17 @@ Neural networks have found recent success as controllers for dynamical systems
         \end{figure}
 
         \column{0.6\textwidth}
-        Assume $x \in \mathbb{R}^n, f(x) = [f_1(x), \ldots, f_n(x)]$, where each $f_i: \mathbb{R}^n \to \mathbb{R}$, $\epsilon \in E$, $\pi$ is a neural network
+        \uncover<1->{
+        Assume $x \in \mathbb{R}^n, f(x) = [f_1(x), \ldots, f_n(x)]$, where each $f_i: \mathbb{R}^n \to \mathbb{R}$, $\epsilon \in E$, $\pi$ is a neural network}
 
         \vspace{0.5cm}
+        \uncover<2->{
         The system ($\mathcal{D}$) evolves such that for each $i \in [1..n]$
         \begin{align*}
             \mathit{next}^{\mathcal{D}}(x)_i = \Big\{x_i + \big(f_i(x) + \pi(o(x))_i + \epsilon\big) \cdot \delta | \epsilon \in E\Big\}
         \end{align*}
 
-        where $\delta$ is the time step size, and $E$ the error set
+        where $\delta$ is the time step size, and $E$ the error set}
     \end{columns}
 \end{frame}
 
@@ -105,13 +109,13 @@ Neural networks have found recent success as controllers for dynamical systems
         $\langle n,I,F,E,u,\delta, T, G, A\rangle$, where 
         \begin{itemize}
             \uncover<1->{\item $n$ is the dimensionality of the system} 
-            \uncover<2->{\item $I$ is the set of initial states}
-            \uncover<3->{\item $F$ is the set of functions $f_i$}
-            \uncover<4->{\item $E$ is the bounded error set}
+            \uncover<2->{\item $I$ is a set of initial states}
+            \uncover<3->{\item $F$ is the set of transition functions $f_i$}
+            \uncover<4->{\item $E$ is a bounded error set}
             \uncover<5->{\item $u$ is the neural network controller}
             \uncover<6->{\item $\delta$ is the time step size}
             \uncover<7->{\item $T$ is the time horizon}
-            \uncover<8->{\item $G$ is the set of goal states}
+            \uncover<8->{\item $G$ is a set of goal states}
             \uncover<9->{\item $A$ is the set of unsafe states at each time step}
         \end{itemize}
 
@@ -141,16 +145,17 @@ Neural networks have found recent success as controllers for dynamical systems
             }
         \end{figure}
 
+        \uncover<1->{
         \column{0.6\textwidth}
-        A \emph{trajectory} $\tau^{\mathcal{D}}(\mathcal{X}_0)$ is a sequence of state sets ($\mathcal{X}_0, \mathcal{X}_1, \ldots, \mathcal{X}_T$), where $\mathcal{X}_0 \subseteq I$, and for each $t \in [1..T]$, $\mathcal{X}_{t} = \mathit{next}^{\mathcal{D}}(\mathcal{X}_{t-1})$
+        A \emph{trajectory} $\tau^{\mathcal{D}}(\mathcal{X}_0)$ is a sequence of state sets ($\mathcal{X}_0, \mathcal{X}_1, \ldots, \mathcal{X}_T$), where $\mathcal{X}_0 \subseteq I$, and for each $t \in [1..T]$, $\mathcal{X}_{t} = \mathit{next}^{\mathcal{D}}(\mathcal{X}_{t-1})$}
         
         \vspace{0.5cm}
-
+        \uncover<2->{
         A system ($\mathcal{D}$) is \emph{safe} if for all trajectories $\tau^{\mathcal{D}}(\mathcal{X}_0)$,
         \begin{align}
             &\forall x_0 \in I\,.\exists t \in [0..T]\,.\, \tau^{\mathcal{D}}(\{x_0\})_t \subseteq G, \\
             &\forall t \in [0..T], \tau^{\mathcal{D}}(I)_t \cap A(t) = \emptyset
-        \end{align}
+        \end{align}}
     \end{columns}
 \end{frame}
 
